@@ -1,0 +1,22 @@
+--- #YAML:1.0
+name:               Text-CSV-Slurp
+version:            0.9
+abstract:           Turn a chunk of CSV into an array of hashes, or an array of hashes into CSV
+author:
+    - Robbie Bow (robbiebow@cpan.org)
+license:            GNU General Public License v3
+distribution_type:  module
+configure_requires:
+    ExtUtils::MakeMaker:  0
+requires:
+    IO::Handle:    ~
+    Test::Most:    0.21 
+    Text::CSV:     1.06
+no_index:
+    directory:
+        - t
+        - inc
+generated_by:       ExtUtils::MakeMaker version 6.48
+meta-spec:
+    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
+    version:  1.4
