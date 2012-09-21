@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Text::CSV;
-use IO::Handle;
+use IO::File;
 
 use vars qw/$VERSION/;
 
@@ -32,7 +32,7 @@ sub load {
     return _from_handle($io,\%opt);
   }
   elsif (defined $opt{file}) {
-    my $io = new IO::Handle;
+    my $io = new IO::File;
     open($io, "<$opt{file}") || die "Could not open $opt{file} $!";
     delete $opt{file};
     return _from_handle($io,\%opt);
