@@ -1,5 +1,9 @@
 Revision history for Perl module Text::CSV::Slurp
 
+1.0 Fri 21 Sep 2012
+    - Use IO::File instead of IO::Handle to resolve
+        https://rt.cpan.org/Ticket/Display.html?id=78278
+
 0.9 Thu 03 Feb 2011
     - Clarify documentation to resolve
         https://rt.cpan.org/Public/Bug/Display.html?id=65398
