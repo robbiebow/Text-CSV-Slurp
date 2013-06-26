@@ -8,7 +8,7 @@ use IO::File;
 
 use vars qw/$VERSION/;
 
-$VERSION = 1.0;
+$VERSION = 1.001;
 
 sub new {
   my $class = shift;

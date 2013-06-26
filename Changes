@@ -1,5 +1,8 @@
 Revision history for Perl module Text::CSV::Slurp
 
+1.001 Thu 27 Jun 2013
+      - Update link to github (previously Google Code)
+
 1.0 Fri 21 Sep 2012
     - Use IO::File instead of IO::Handle to resolve
         https://rt.cpan.org/Ticket/Display.html?id=78278
