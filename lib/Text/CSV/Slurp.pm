@@ -207,7 +207,7 @@ GNU General Public License v3
 
 =head1 SOURCE
 
-Available at L<http://code.google.com/p/perl-text-csv-slurp/>
+Available at L<https://github.com/babf/Text-CSV-Slurp>
 
 =head1 SEE ALSO
 
