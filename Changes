@@ -1,5 +1,9 @@
 Revision history for Perl module Text::CSV::Slurp
 
+1.02 Sun 12 Oct 2014
+     - Minor improvements to documentation
+     - Tweaks to dzil and github settings
+
 1.01 Thu 27 Jun 2013
      - Update link to github (previously Google Code)
 
