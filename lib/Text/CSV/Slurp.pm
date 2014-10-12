@@ -128,10 +128,7 @@ return qw/Open hearts and empty minds/;
 
 __END__
 
-=head1 NAME
-
-Text::CSV::Slurp - convert CSV into an array of hashes, or an array of
-hashes into CSV
+# ABSTRACT: Text::CSV::Slurp - convert CSV into an array of hashes, or an array of hashes into CSV
 
 =head1 SUMMARY
 
@@ -185,10 +182,15 @@ used as the keys for each of the hashes.
  close FH;
 
 Creates CSV from an arrayref of hashrefs and returns it as a string. All optional
-arguments are passed to L<Text::CSV> except for C<field_order>, which is used
-to determine the fields and order in which they appear in the CSV. For example:
+arguments are passed to L<Text::CSV> except for C<field_order>.
 
- my $csv = Text::CSV::Slurp->create( input => \@array_of_hashes, field_order => ['one','three','two'] );
+=head3 field_order
+
+C<field_order> which is used to determine the fields and order in which they 
+appear in the CSV. For example:
+
+ my $csv = Text::CSV::Slurp->create( input => \@array_of_hashes, 
+                                     field_order => ['one','three','two'] );
 
 If field_order is not supplied then the sorted keys of the first hash in the
 input are used instead.
