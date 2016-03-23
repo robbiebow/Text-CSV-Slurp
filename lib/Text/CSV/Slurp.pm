@@ -5,6 +5,7 @@ use warnings;
 
 use Text::CSV;
 use IO::File;
+use IO::Scalar;
 
 use vars qw/$VERSION/;
 
@@ -22,41 +23,25 @@ sub load {
   my %default = ( binary => 1 );
   %opt = (%default, %opt);
 
-  unless (defined $opt{file} || defined $opt{filehandle} || defined $opt{string}) {
-    die "Need either a file, filehandle or string to work with";
-  }
-
+  my $io;
   if (defined $opt{filehandle}) {
-    my $io = $opt{filehandle};
+    $io = $opt{filehandle};
     delete $opt{filehandle};
-    return _from_handle($io,\%opt);
   }
   elsif (defined $opt{file}) {
-    my $io = new IO::File;
+    $io = new IO::File;
     open($io, "<$opt{file}") || die "Could not open $opt{file} $!";
     delete $opt{file};
     return _from_handle($io,\%opt);
   }
-  else {
-    my @data  = split /\n/, $opt{string};
+  elsif (defined $opt{string}) {
+    $io = IO::Scalar->new(\$opt{string});
     delete $opt{string};
-
-    my $csv   = Text::CSV->new(\%opt);
-    $csv->parse(shift @data);
-
-    my @names = $csv->fields();
-
-    my @results;
-
-    for my $line (@data) {
-      $csv->parse($line);
-      my %hash;
-      @hash{@names} = $csv->fields();
-      push @results, \%hash;
-    }
-
-    return \@results;
   }
+  else {
+    die "Need either a file, filehandle or string to work with";
+  }
+  return _from_handle($io,\%opt);
 }
 
 sub create {
