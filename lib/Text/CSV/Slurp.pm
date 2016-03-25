@@ -9,7 +9,7 @@ use IO::Scalar;
 
 use vars qw/$VERSION/;
 
-$VERSION = 1.02;
+$VERSION = 1.03;
 
 sub new {
   my $class = shift;
@@ -171,10 +171,10 @@ arguments are passed to L<Text::CSV> except for C<field_order>.
 
 =head3 field_order
 
-C<field_order> which is used to determine the fields and order in which they 
+C<field_order> which is used to determine the fields and order in which they
 appear in the CSV. For example:
 
- my $csv = Text::CSV::Slurp->create( input => \@array_of_hashes, 
+ my $csv = Text::CSV::Slurp->create( input => \@array_of_hashes,
                                      field_order => ['one','three','two'] );
 
 If field_order is not supplied then the sorted keys of the first hash in the
@@ -205,5 +205,6 @@ L<Spreadsheet::Read>
 =head1 THANKS
 
 To Kyle Albritton for suggesting and testing the L<create> method
+To Tomas Pokorny for the L<IO::Scalar> patch for the L<load> method
 
 =cut
